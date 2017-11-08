@@ -32,6 +32,11 @@ HEADERS += \
         mainwindow.h \
     wb_setting.h
 
-FORMS += \
-        mainwindow.ui \
-    wb_setting.ui
+FORMS +=
+
+DISTFILES += \
+    skin.qss
+
+RESOURCES += \
+    resource.qrc
+
