@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    wb_setting.cpp
+    wb_setting.cpp \
+    runthread.cpp
 
 HEADERS += \
         mainwindow.h \
-    wb_setting.h
+    wb_setting.h \
+    runthread.h
 
 FORMS +=
 

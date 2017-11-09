@@ -27,21 +27,48 @@ MainWindow::MainWindow(QWidget *parent) :
     this->my_statusbar=new QStatusBar(this);
     this->setStatusBar(this->my_statusbar);
     //设置主题窗口
-    this->main_widget->setColumnCount(7);
+    this->main_widget->setColumnCount(4);
     QStringList header;
-    header<<tr("手机号")<<tr("自设")<<tr("123456")<<tr("密码后六")<<tr("123321")<<tr("147258")<<tr("MAC");
+    header<<tr("手机号")<<tr("123456")<<tr("密码后六")<<tr("MAC");
     this->main_widget->setHorizontalHeaderLabels(header);
    this->main_widget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);//设置列等宽
     this->MyInit();
     connect(this->my_menu_set,SIGNAL(triggered(bool)),this,SLOT(OpenSetWid()));
+    connect(this->my_menu_import,SIGNAL(triggered(bool)),this,SLOT(OpenFdImport()));
 
 }
 void MainWindow::OpenSetWid()
 {
-
+ if(this->my_webset->isVisible() == false)
+ {
   this->my_webset->show();
+ }
+ qDebug()<<"opensetwid"<<endl;
+}
+void MainWindow::OpenFdImport()
+{
+        QString file_name = QFileDialog::getOpenFileName(this,tr("导入宽带帐号"),".","*.txt");
+        qDebug() << file_name<<endl;
+         QFile f(file_name);
+         if(!f.open(QIODevice::ReadOnly | QIODevice::Text))
+         {
+             qDebug() << tr("Open failed.") << endl;
 
-    qDebug()<<"opensetwid"<<endl;
+         }
+         QTextStream txtInput(&f);
+         QString lineStr;
+         int i=0;
+         while(!txtInput.atEnd())
+         {
+             lineStr = txtInput.readLine();
+             this->main_widget->setRowCount(i+1);
+             this->main_widget->setItem(i,0,new QTableWidgetItem(lineStr));
+             qDebug() << lineStr << endl;
+             i++;
+         }
+
+         f.close();
+
 }
 void MainWindow::MyInit()
 {

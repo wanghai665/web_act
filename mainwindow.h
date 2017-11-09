@@ -10,6 +10,8 @@
 #include <QStatusBar>
 #include <QFile>
 #include <QAction>
+#include <QFileDialog>
+#include <QTableWidgetItem>
 
 
 class MainWindow : public QMainWindow
@@ -21,6 +23,7 @@ public:
     ~MainWindow();
 public slots:
     void OpenSetWid();
+    void OpenFdImport();
 private:
     wb_setting *my_webset;
     QTableWidget *main_widget;
