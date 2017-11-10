@@ -4,3 +4,10 @@ RunThread::RunThread()
 {
 
 }
+RunThread::run()
+{
+    while (true)
+    {
+
+    }
+}

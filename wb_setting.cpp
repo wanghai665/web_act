@@ -17,7 +17,7 @@ wb_setting::wb_setting(QWidget *parent) :
     this->my_main_layout->addLayout(this->my_buttom_layout);
     this->setLayout(this->my_main_layout);
    //设置上部分
-    this->my_lineedit_ppoe=new QLineEdit(tr("ADSL"));
+    this->my_lineedit_ppoe=new QComboBox();
     this->my_lable_ppoe=new QLabel(tr("宽带连接名        "));
     this->my_top_layout->addStretch();
     this->my_top_layout->addWidget(this->my_lable_ppoe);
@@ -25,7 +25,7 @@ wb_setting::wb_setting(QWidget *parent) :
     this->my_top_layout->addStretch();
     //设置中间部分
     this->my_lable_reg=new QLabel(tr("网卡注册表序列"));
-    this->my_lineedit_reg=new QLineEdit(tr("0007"));
+    this->my_lineedit_reg=new QComboBox();
     this->my_mid_layout->addStretch();
     this->my_mid_layout->addWidget(this->my_lable_reg);
     this->my_mid_layout->addWidget(this->my_lineedit_reg);

@@ -1,6 +1,7 @@
 #ifndef RUNTHREAD_H
 #define RUNTHREAD_H
 #include <QThread>
+#include <QMutex>
 
 
 class RunThread : public QThread
@@ -9,6 +10,8 @@ class RunThread : public QThread
 public:
     RunThread();
     void run();
+private:
+    QMutex mloke;
 signals:
     void message(const QString& info);
     void progress(int present);

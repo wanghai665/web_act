@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QBoxLayout>
+#include <QComboBox>
 class wb_setting : public QWidget
 {
     Q_OBJECT
@@ -24,8 +25,8 @@ private slots:
 private:
    QLabel* my_lable_ppoe;
    QLabel* my_lable_reg;
-   QLineEdit* my_lineedit_ppoe;
-   QLineEdit* my_lineedit_reg;
+   QComboBox* my_lineedit_ppoe;
+   QComboBox* my_lineedit_reg;
    QPushButton* my_button_sub;
    QVBoxLayout* my_main_layout;
    QHBoxLayout* my_top_layout;
